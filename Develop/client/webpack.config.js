@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file. done
 // TODO: Add CSS loaders and babel to webpack. done
@@ -22,6 +23,7 @@ module.exports = () => {
         swSrc: './src-sw.js',
         swDest: 'service-worker.js',
       }),
+      // new WorkboxPlugin.GenerateSW(),
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'Webpack Plugin',
@@ -50,7 +52,6 @@ module.exports = () => {
         ],
       }),
     ],
-
     module: {
       rules: [
         {
